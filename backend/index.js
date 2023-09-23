@@ -1,10 +1,14 @@
+const dotenv = require("dotenv");
 const express = require("express");
 const app = express();
-const dotenv = require("dotenv");
 const mongoose = require("mongoose");
+const cors = require("cors");
 dotenv.config();
+app.use(cors());
+app.use(express.json());
 
 const PORT = process.env.PORT;
+const authRouter = require("./routes/AuthRouter");
 
 const connect = async () => {
   try {
@@ -14,6 +18,9 @@ const connect = async () => {
     throw error;
   }
 };
+
+app.use("/auth", authRouter);
+
 app.listen(PORT, () => {
   connect();
   console.log(`${PORT} unda çalışıyor`);
