@@ -1,0 +1,9 @@
+.main{
+    @apply flex flex-col gap-4
+}
+.title{
+    @apply text-center font-bold text-xl
+}
+.link{
+    @apply text-right text-sky-500
+}
