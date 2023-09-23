@@ -3,4 +3,5 @@ export default interface ButtonProps {
     type?: "button" | "submit"
     buttonType?:boolean
     linkHref?:string
+    onClick?:any
 }

@@ -1,16 +1,10 @@
 const AuthModels = require("../models/AuthModels");
 
 const register = async (req, res) => {
-  const { userName, image, email, password, confirmPassword } = req.body;
+  const { userName, image, email, password } = req.body;
 
   try {
-    const user = await AuthModels.register(
-      email,
-      password,
-      image,
-      confirmPassword,
-      userName
-    );
+    const user = await AuthModels.register(email, password, image, userName);
     console.log("users", user);
     res.status(200).json({
       email,
@@ -26,7 +20,7 @@ const login = async (req, res) => {
   const { email, password } = req.body;
   try {
     const user = await AuthModels.login(email, password);
-    res.status(200).send({ user });
+    res.status(200).send(user);
   } catch (err) {
     res.status(400).json({
       hata: err.message,

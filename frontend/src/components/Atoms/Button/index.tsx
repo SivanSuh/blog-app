@@ -8,11 +8,12 @@ const Button: FC<ButtonProps> = ({
   type = "button",
   buttonType = true,
   linkHref,
+  onClick,
 }) => {
   return (
     <>
       {buttonType ? (
-        <button type={type} className={Style.button}>
+        <button type={type} className={Style.button} onClick={onClick}>
           {buttonName}
         </button>
       ) : (

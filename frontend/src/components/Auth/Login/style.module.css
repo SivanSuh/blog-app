@@ -7,3 +7,6 @@
 .link{
     @apply text-right text-sky-500
 }
+.errors {
+    @apply text-center text-red-700
+}

@@ -46,10 +46,9 @@ AuthModels.statics.register = async function (
   email,
   password,
   userName,
-  image,
-  confirmPassword
+  image
 ) {
-  if (!email || !password || !userName || !confirmPassword) {
+  if (!email || !password || !userName) {
     throw Error(" Register Alanları boş geçilemez");
   }
 
@@ -68,10 +67,10 @@ AuthModels.statics.register = async function (
   const salt = await bcrypt.genSalt(10);
   const pass = await bcrypt.hash(password, salt);
 
-  const passwordControl = await bcrypt.compare(password, confirmPassword);
-  if (!passwordControl) {
-    throw Error("Paralolar Eşleşmiyor");
-  }
+  //const passwordControl = await bcrypt.compare(password, confirmPassword);
+  // if (!passwordControl) {
+  //   throw Error("Paralolar Eşleşmiyor");
+  // }
 
   const user = await this.create({
     email,

@@ -1,3 +1,10 @@
 .input {
     @apply p-4 border my-1
 }
+.password{
+    @apply relative
+}
+
+.checked {
+    @apply absolute  right-2 top-0 bottom-0
+}
