@@ -1,3 +1,6 @@
 .nav{
     @apply flex w-full p-3 justify-between items-center border-b-2 bg-white
 }
+.userName{
+    @apply mx-2
+}

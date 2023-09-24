@@ -4,12 +4,11 @@ const register = async (req, res) => {
   const { userName, image, email, password } = req.body;
 
   try {
-    const user = await AuthModels.register(email, password, image, userName);
+    const user = await AuthModels.register(email, password, userName);
     console.log("users", user);
     res.status(200).json({
       email,
       userName,
-      image,
     });
   } catch (error) {
     res.status(400).json({ hata: error.message });

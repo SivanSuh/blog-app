@@ -1,0 +1,22 @@
+.wrapper {
+ @apply border p-4 cursor-pointer border-black hover:bg-white delay-100
+}
+.main {
+    @apply flex max-w-3xl w-full justify-between 
+}
+
+.title{
+    @apply text-xl font-bold
+}
+.img {
+    @apply min-w-[112px] h-28 ml-5
+}
+.description {
+    @apply max-w-fit
+}
+.user {
+    @apply flex items-center mb-2
+}
+.userImage {
+    @apply w-6 h-6 rounded-full mr-2
+}

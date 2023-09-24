@@ -1,5 +1,11 @@
+import Blog from "@/src/components/Blog";
+
 const HomePage = () => {
-  return <>Home Page</>;
+  return (
+    <>
+      <Blog />
+    </>
+  );
 };
 
 export default HomePage;

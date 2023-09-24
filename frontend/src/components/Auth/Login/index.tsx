@@ -5,7 +5,7 @@ import Button from "@/src/components/Atoms/Button";
 import Input from "../../Atoms/Input";
 import Style from "./style.module.css";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
-import { RootState, useAppDispatch } from "@/src/store/store";
+import { RootState, AppDispatch } from "@/src/store/store";
 import { login } from "@/src/store/slices/authSlice";
 import { useRouter } from "next/navigation";
 import { useSelector } from "react-redux";
@@ -14,7 +14,7 @@ const Login = () => {
   const { error } = useSelector((state: RootState) => state.auth);
 
   const router = useRouter();
-  const dispatch = useAppDispatch();
+  const dispatch = AppDispatch();
   const {
     register,
     handleSubmit,

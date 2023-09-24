@@ -9,5 +9,9 @@ export default function ReduxProvider({
 }: {
   children: React.ReactNode;
 }) {
-  return <Provider store={store}>{children}</Provider>;
+  return (
+    <Provider store={store}>
+      <>{children}</>
+    </Provider>
+  );
 }

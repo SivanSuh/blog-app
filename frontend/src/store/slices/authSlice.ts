@@ -12,7 +12,7 @@ export const login = createAsyncThunk("login", async (body:LoginModel,{rejectWit
         const response = await authService.loginService(body);
         cookies.set("login",JSON.stringify(body))
         return response
-    } catch (error) {
+    } catch (error:any) {
         return rejectWithValue(error?.response?.data?.hata)
     }
 })
@@ -22,7 +22,7 @@ export const registerRequest = createAsyncThunk("register",async (body:RegisterM
         const response = await authService.registerService(body)
         cookies.set("login",JSON.stringify(body))
         return response
-    } catch (error) {
+    } catch (error:any) {
         console.log("errr",error)
        return rejectWithValue(error?.response?.data?.hata)
     }
@@ -54,7 +54,7 @@ const authSlice = createSlice({
     extraReducers:(builder) => {
         builder.addCase(login.fulfilled,(state,action) => {
             //state.isLoggin = true
-            state.formData = action.payload
+            state.formData = action.payload?.data
             console.log("form daraasadas",state.formData)
             //cookies.set("login",JSON.stringify(action.payload.data))
         })

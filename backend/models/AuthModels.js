@@ -9,11 +9,6 @@ const AuthModels = new Schema(
       type: String,
       required: true,
     },
-    image: {
-      type: String,
-      default:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx9csWZpVBMhOfyKFkkY_rI_1A58cE9j1xxT6wzhkjZ0Vq1PewcBtK8mCzWj3EFHQxIKg&usqp=CAU",
-    },
     email: {
       type: String,
       required: true,
@@ -42,12 +37,7 @@ AuthModels.statics.login = async function (email, password) {
   return user;
 };
 
-AuthModels.statics.register = async function (
-  email,
-  password,
-  userName,
-  image
-) {
+AuthModels.statics.register = async function (email, password, userName) {
   if (!email || !password || !userName) {
     throw Error(" Register Alanları boş geçilemez");
   }
@@ -76,7 +66,6 @@ AuthModels.statics.register = async function (
     email,
     password: pass,
     userName,
-    image,
   });
   return user;
 };
