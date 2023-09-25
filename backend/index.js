@@ -9,6 +9,7 @@ app.use(express.json());
 
 const PORT = process.env.PORT;
 const authRouter = require("./routes/AuthRouter");
+const blogRouter = require("./routes/blogRouter");
 
 const connect = async () => {
   try {
@@ -20,6 +21,7 @@ const connect = async () => {
 };
 
 app.use("/auth", authRouter);
+app.use("/blog", blogRouter);
 
 app.listen(PORT, () => {
   connect();
