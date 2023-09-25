@@ -18,6 +18,9 @@ const AuthModels = new Schema(
       type: String,
       required: true,
     },
+    image: {
+      type: String,
+    },
   },
   { timestamps: true }
 );
@@ -37,7 +40,12 @@ AuthModels.statics.login = async function (email, password) {
   return user;
 };
 
-AuthModels.statics.register = async function (email, password, userName) {
+AuthModels.statics.register = async function (
+  email,
+  password,
+  userName,
+  image
+) {
   if (!email || !password || !userName) {
     throw Error(" Register Alanları boş geçilemez");
   }
@@ -66,6 +74,7 @@ AuthModels.statics.register = async function (email, password, userName) {
     email,
     password: pass,
     userName,
+    image,
   });
   return user;
 };
