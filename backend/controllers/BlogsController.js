@@ -22,10 +22,6 @@ const addBlogs = async (req, res) => {
 const allBlog = async (req, res) => {
   const { user } = req.body;
   try {
-    // const getUser = await AuthModels.findOne()
-    //   .populate("user", ["userName"])
-    //   .exec();
-
     const getAllBlog = await BlogModels.find().populate("user");
     res.send(getAllBlog);
   } catch (error) {
@@ -33,7 +29,29 @@ const allBlog = async (req, res) => {
   }
 };
 
+const blogUpdate = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const updateBlog = await BlogModels.findOneAndUpdate({ _id: id }, req.body);
+    res.status(200).json(updateBlog);
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+const selectBlog = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const getSelectBlog = await BlogModels.findById(id).populate("user");
+    res.send(getSelectBlog);
+  } catch (err) {
+    console.log(err);
+  }
+};
+
 module.exports = {
   addBlogs,
   allBlog,
+  selectBlog,
+  blogUpdate,
 };

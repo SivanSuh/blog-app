@@ -1,0 +1,12 @@
+.title {
+    @apply text-3xl mb-10
+}
+.image {
+    @apply w-[400px] object-cover
+}
+.description{
+    @apply text-lg my-10
+}
+.userImage {
+    @apply rounded-full
+}

@@ -19,24 +19,9 @@ const registerService = async (data:RegisterModel) => {
     })
 }
 
-const addNewBlog = async (data:AddBlogModel) => {
-    return api({
-        url:"/blog/addBlog",
-        method:"POST",
-        data
-    })
-}
 
-const getAllBlogs = async () => {
-    return api({
-        url:"/blog/allBlog",
-        method:"GET",
-    })
-}
 const authService = {
     loginService,
     registerService,
-    addNewBlog,
-    getAllBlogs
 }
 export default authService
