@@ -3,10 +3,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 import {  useDispatch } from "react-redux";
 import authSlice from "./slices/authSlice";
+import blogSlice from "./slices/blogSlice";
 
 export const store = configureStore({
     reducer:{
-        auth:authSlice
+        auth:authSlice,
+        blog:blogSlice
     },
     middleware:(getDefaultMiddleware) => 
     getDefaultMiddleware({

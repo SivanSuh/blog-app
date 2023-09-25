@@ -27,9 +27,7 @@ const allBlog = async (req, res) => {
     //   .exec();
 
     const getAllBlog = await BlogModels.find();
-    res.send({
-      getAllBlog,
-    });
+    res.send(getAllBlog);
   } catch (error) {
     console.log(error);
   }
