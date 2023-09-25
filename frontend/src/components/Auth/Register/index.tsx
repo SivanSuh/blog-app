@@ -5,11 +5,11 @@ import Style from "./style.module.css";
 import Input from "../../Atoms/Input";
 import Link from "next/link";
 import Button from "../../Atoms/Button";
-import { useAppDispatch } from "@/src/store/store";
+import { AppDispatch } from "@/src/store/store";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 
 const Register = () => {
-  const dispatch = useAppDispatch();
+  const dispatch = AppDispatch();
   const { register, handleSubmit } = useForm<FieldValues>({
     defaultValues: {
       email: "",

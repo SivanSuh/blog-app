@@ -23,10 +23,10 @@ const Blog = () => {
             <div className={Style.user}>
               <img
                 className={Style.userImage}
-                src={item.image}
+                src={item.user?.image}
                 alt={item.title}
               />
-              <span>{item.userInfo}</span>
+              <span>{item?.user?.userName}</span>
             </div>
             <div className={Style.main}>
               <div className={Style.description}>

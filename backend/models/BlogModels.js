@@ -15,7 +15,7 @@ const BlogModels = new Schema(
       type: String,
       required: true,
     },
-    userInfo: {
+    user: {
       type: Schema.Types.ObjectId,
       ref: "user",
     },

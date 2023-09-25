@@ -22,7 +22,7 @@ export const getBlogs = createAsyncThunk("get-blog",async () => {
 })
 
 interface AddModel {
-    allBlog:AddBlogModel[]
+    allBlog:AllBlogsModel[]
     errors:boolean
 }
 const initialState:AddModel= {

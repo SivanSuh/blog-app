@@ -2,14 +2,14 @@ const AuthModels = require("../models/AuthModels");
 const BlogModels = require("../models/BlogModels");
 
 const addBlogs = async (req, res) => {
-  const { title, description, image, userInfo } = req.body;
+  const { title, description, image, user } = req.body;
 
   try {
     const createNewBlog = await BlogModels.create({
       title,
       description,
       image,
-      userInfo,
+      user,
     });
     if (createNewBlog) {
       res.send(createNewBlog);
@@ -20,13 +20,13 @@ const addBlogs = async (req, res) => {
 };
 
 const allBlog = async (req, res) => {
-  const { userInfo } = req.body;
+  const { user } = req.body;
   try {
     // const getUser = await AuthModels.findOne()
-    //   .populate("userInfo", ["userName"])
+    //   .populate("user", ["userName"])
     //   .exec();
 
-    const getAllBlog = await BlogModels.find();
+    const getAllBlog = await BlogModels.find().populate("user");
     res.send(getAllBlog);
   } catch (error) {
     console.log(error);
