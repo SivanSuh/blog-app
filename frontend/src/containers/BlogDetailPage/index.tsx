@@ -23,6 +23,7 @@ const BlogDetailPage: React.FC<BlogProps> = ({ params }) => {
   return (
     <>
       <BlogDetail select={selectBlog} />
+      <h3>Diğer Makaleler</h3>
     </>
   );
 };

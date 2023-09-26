@@ -8,5 +8,5 @@
     @apply text-lg my-10
 }
 .userImage {
-    @apply rounded-full
+    @apply rounded-full w-14
 }
