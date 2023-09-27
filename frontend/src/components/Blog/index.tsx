@@ -5,7 +5,6 @@ import Style from "./style.module.css";
 import { useSelector } from "react-redux";
 import { AppDispatch, RootState } from "@/src/store/store";
 import { getBlogs } from "@/src/store/slices/blogSlice";
-import AllBlogsModel from "@/src/modelTypes/AllBlogsModel";
 import Link from "next/link";
 
 const Blog = () => {
@@ -28,6 +27,7 @@ const Blog = () => {
                   src={item.user?.image}
                   alt={item.title}
                 />
+
                 <span>{item?.user?.userName}</span>
               </div>
               <div className={Style.main}>

@@ -4,6 +4,7 @@ const {
   allBlog,
   selectBlog,
   blogUpdate,
+  selectUser,
 } = require("../controllers/BlogsController");
 const router = express.Router();
 

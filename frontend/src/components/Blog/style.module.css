@@ -1,5 +1,5 @@
 .wrapper {
- @apply border p-4 cursor-pointer border-black hover:bg-white delay-100 my-2
+ @apply border-none p-4 cursor-pointer  ease-in-out hover:bg-white shadow-lg delay-100 my-2
 }
 .main {
     @apply flex  w-[800px] justify-between 

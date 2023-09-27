@@ -5,9 +5,9 @@ import Style from "./style.module.css";
 const BlogDetail: React.FC<BlogDetailProps> = ({ select }) => {
   return (
     <div>
-      <h2 className={Style.title}>{select.title}</h2>
-      <img src={select.image} alt={select.title} className={Style.image} />
-      <p className={Style.description}>{select.description}</p>
+      <h2 className={Style.title}>{select?.title}</h2>
+      <img src={select?.image} alt={select?.title} className={Style.image} />
+      <p className={Style.description}>{select?.description}</p>
       <br />
       <img
         className={Style.userImage}
