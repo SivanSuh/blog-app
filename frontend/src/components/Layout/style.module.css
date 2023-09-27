@@ -1,3 +1,6 @@
 .layout {
-    @apply min-h-screen bg-none flex justify-between flex-col h-full items-center
+    @apply min-h-screen bg-none flex justify-between flex-col h-full items-center 
+}
+.main {
+    @apply my-5
 }

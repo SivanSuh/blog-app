@@ -1,6 +1,7 @@
 "use client";
 
 import BlogDetail from "@/src/components/BlogDetail";
+import OtherCard from "@/src/components/OtherCard";
 import { getSelectBlog } from "@/src/store/slices/blogSlice";
 import { AppDispatch, RootState } from "@/src/store/store";
 import React, { useEffect } from "react";
@@ -12,7 +13,7 @@ interface BlogProps {
 
 const BlogDetailPage: React.FC<BlogProps> = ({ params }) => {
   console.log("params", params.id);
-  const { selectBlog } = useSelector((state: RootState) => state.blog);
+  const { selectBlog, allBlog } = useSelector((state: RootState) => state.blog);
 
   const dispatch = AppDispatch();
 
@@ -20,11 +21,20 @@ const BlogDetailPage: React.FC<BlogProps> = ({ params }) => {
     dispatch(getSelectBlog(params.id));
   }, []);
   console.log("select ", selectBlog);
+  const userOtherBlog = allBlog.filter(
+    (item) => item.user._id === selectBlog?.user?._id
+  );
+  console.log("detail", userOtherBlog);
   return (
-    <>
+    <div style={{ margin: "20px auto" }}>
       <BlogDetail select={selectBlog} />
-      <h3>Diğer Makaleler</h3>
-    </>
+      <h2>
+        <b>Diğer Makaleler</b>
+      </h2>
+      {userOtherBlog.map((item) => (
+        <OtherCard select={item} key={item._id} />
+      ))}
+    </div>
   );
 };
 

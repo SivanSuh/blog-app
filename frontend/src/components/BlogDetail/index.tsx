@@ -8,7 +8,7 @@ const BlogDetail: React.FC<BlogDetailProps> = ({ select }) => {
       <h2 className={Style.title}>{select.title}</h2>
       <img src={select.image} alt={select.title} className={Style.image} />
       <p className={Style.description}>{select.description}</p>
-      <p>Author</p>
+      <br />
       <img
         className={Style.userImage}
         src={select?.user?.image}

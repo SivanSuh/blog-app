@@ -9,7 +9,7 @@
     @apply text-xl font-bold
 }
 .img {
-    @apply min-w-[112px] h-28 ml-5
+    @apply min-w-[112px] h-28 
 }
 .description {
     @apply max-w-fit

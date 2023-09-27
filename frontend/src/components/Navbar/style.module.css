@@ -1,5 +1,5 @@
 .nav{
-    @apply flex w-full p-3 justify-between items-center border-b-2 bg-white
+    @apply flex w-full p-3 justify-between items-center border-b-2 bg-white sticky top-0
 }
 .userName{
     @apply mx-2

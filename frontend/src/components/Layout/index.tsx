@@ -31,7 +31,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       <Navbar />
       {logins ? (
         <>
-          <div>{children}</div>
+          <div className={Style.main}>{children}</div>
         </>
       ) : (
         <LoginPage />
