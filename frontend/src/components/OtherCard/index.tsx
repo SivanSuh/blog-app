@@ -8,7 +8,11 @@ const OtherCard: React.FC<BlogDetailProps> = ({ select }) => {
     <Link href={`/blogs/${select?._id}`}>
       <div className={Style.other}>
         <h3 className={Style.title}>{select.title}</h3>
-        <img src={select.image} alt={select.title} className={Style.image} />
+        <img
+          src={`${process.env.NEXT_PUBLIC_BASE_URL}/uploads/${select.image}`}
+          alt={select.title}
+          className={Style.image}
+        />
       </div>
     </Link>
   );

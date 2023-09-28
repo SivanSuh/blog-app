@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import { AppDispatch, RootState } from "@/src/store/store";
 import { getBlogs } from "@/src/store/slices/blogSlice";
 import Link from "next/link";
+import WordLength from "@/src/utils/WordLength";
 
 const Blog = () => {
   const { allBlog } = useSelector((state: RootState) => state.blog);
@@ -33,12 +34,12 @@ const Blog = () => {
               <div className={Style.main}>
                 <div className={Style.description}>
                   <h2 className={Style.title}>{item.title}</h2>
-                  <p>{item.description}</p>
+                  <p>{WordLength(item.description)}</p>
                 </div>
                 <div>
                   <img
                     className={Style.img}
-                    src={item.image}
+                    src={`${process.env.NEXT_PUBLIC_BASE_URL}/uploads/${item.image}`}
                     alt={item.title}
                   />
                 </div>

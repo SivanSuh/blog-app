@@ -6,6 +6,7 @@ import { getSelectBlog } from "@/src/store/slices/blogSlice";
 import { AppDispatch, RootState } from "@/src/store/store";
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
+import Style from "./style.module.css";
 
 interface BlogProps {
   params: any;
@@ -26,7 +27,7 @@ const BlogDetailPage: React.FC<BlogProps> = ({ params }) => {
   );
   console.log("detail", userOtherBlog);
   return (
-    <div style={{ margin: "20px auto" }}>
+    <div className={Style.wrapper}>
       <BlogDetail select={selectBlog} />
       <h2>
         <b>Diğer Makaleler</b>
