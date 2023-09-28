@@ -8,11 +8,11 @@ const addBlogs = async (req, res) => {
     const createNewBlog = await BlogModels.create({
       title,
       description,
-      image,
+      image: req.file.filename,
       user,
     });
     if (createNewBlog) {
-      res.send(createNewBlog);
+      return res.send(createNewBlog);
     }
   } catch (err) {
     throw err;

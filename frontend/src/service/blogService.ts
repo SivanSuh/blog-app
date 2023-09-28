@@ -4,6 +4,9 @@ import { api } from "./api"
 const addNewBlog = async (data:AddBlogModel) => {
     return api({
         url:"/blog/addBlog",
+        headers: {
+            "Content-Type": "multipart/form-data",
+          },
         method:"POST",
         data
     })

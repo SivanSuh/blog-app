@@ -12,6 +12,8 @@ const Input: FC<InputProps> = ({
   required,
   id,
   name,
+  disabled = false,
+  value,
 }) => {
   const [hide, setHide] = useState({
     pass: "",
@@ -48,6 +50,8 @@ const Input: FC<InputProps> = ({
           className={Style.input}
           placeholder={placeholder}
           type={type}
+          disabled={disabled}
+          value={value}
           {...register(id as string, { required })}
           id={id}
           name={name}

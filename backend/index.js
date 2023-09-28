@@ -19,7 +19,7 @@ const connect = async () => {
     throw error;
   }
 };
-
+app.use("/uploads", express.static("uploads"));
 app.use("/auth", authRouter);
 app.use("/blog", blogRouter);
 
