@@ -9,7 +9,6 @@ const FileUpload: React.FC<FileUploaderProp> = ({
   setSelectedFile,
 }) => {
   const handleFileChange = (e: any) => {
-    console.log("seçilen image", e.target.files[0]);
     setSelectedFile(e.target.files[0]);
   };
 

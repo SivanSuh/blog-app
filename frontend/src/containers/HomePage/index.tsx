@@ -27,7 +27,6 @@ const HomePage = () => {
   const [select, setSelect] = useState(data[0].name);
   return (
     <>
-      <h2>All Blogs</h2>
       <Button
         buttonName="Create Blog"
         linkHref="/createBlog"

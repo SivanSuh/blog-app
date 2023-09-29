@@ -15,7 +15,6 @@ interface BlogProps {
 }
 
 const BlogDetailPage: React.FC<BlogProps> = ({ params }) => {
-  console.log("params", params.id);
   const { selectBlog, allBlog } = useSelector((state: RootState) => state.blog);
 
   const dispatch = AppDispatch();
@@ -23,11 +22,9 @@ const BlogDetailPage: React.FC<BlogProps> = ({ params }) => {
   useEffect(() => {
     dispatch(getSelectBlog(params.id));
   }, []);
-  console.log("select ", selectBlog);
   const userOtherBlog = allBlog.filter(
     (item) => item.user._id === selectBlog?.user?._id
   );
-  console.log("detail", userOtherBlog);
   return (
     <div className={Style.wrapper}>
       <Link href="/">Back</Link>

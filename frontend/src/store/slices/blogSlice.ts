@@ -1,5 +1,6 @@
 import AddBlogModel from "@/src/modelTypes/AddBlogModel";
 import AllBlogsModel from "@/src/modelTypes/AllBlogsModel";
+import RegisterModel from "@/src/modelTypes/RegisterModel";
 import blogService from "@/src/service/blogService";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
@@ -29,16 +30,26 @@ export const getSelectBlog = createAsyncThunk("get-select-blog",async (id:string
         console.log(error)
     }
 })
+export const getUserInfo = createAsyncThunk("get-user-info",async (id:string) => {
+    try {
+        const response = await blogService.userInfo(id)
+        return response
+    } catch (error) {
+        console.log(error)
+    }
+})
 
 interface AddModel {
     allBlog:AllBlogsModel[]
     errors:boolean
     selectBlog:Object
+    userData:RegisterModel | null | unknown
 }
 const initialState:AddModel= {
     allBlog:[],
     errors:false,
-    selectBlog:{}
+    selectBlog:{},
+    userData:null
 }
 
 const blogSlice = createSlice({
@@ -63,6 +74,11 @@ const blogSlice = createSlice({
         })
         builder.addCase(getSelectBlog.rejected,(state,action) => {
             state.errors = true
+        })
+
+        // userInfo
+        builder.addCase(getUserInfo.fulfilled,(state,action) => {
+            state.userData = action.payload?.data
         })
     }
 })

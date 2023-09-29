@@ -10,7 +10,6 @@ import WordLength from "@/src/utils/WordLength";
 
 const Blog = () => {
   const { allBlog } = useSelector((state: RootState) => state.blog);
-  console.log("all blogs", allBlog);
   const dispatch = AppDispatch();
 
   useEffect(() => {

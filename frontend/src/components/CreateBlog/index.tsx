@@ -27,8 +27,6 @@ const CreateBlog = () => {
     newFormData.append("user", formData?._id);
 
     await dispatch(addBlog(newFormData as any));
-
-    console.log("data", newFormData);
   };
 
   return (

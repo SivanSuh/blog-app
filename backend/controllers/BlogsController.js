@@ -49,9 +49,19 @@ const selectBlog = async (req, res) => {
   }
 };
 
+const userInfo = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const info = await AuthModels.findById(id);
+    res.send(info);
+  } catch (err) {
+    console.log(err);
+  }
+};
 module.exports = {
   addBlogs,
   allBlog,
   selectBlog,
   blogUpdate,
+  userInfo,
 };
