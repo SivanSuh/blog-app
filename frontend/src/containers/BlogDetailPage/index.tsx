@@ -4,9 +4,11 @@ import BlogDetail from "@/src/components/BlogDetail";
 import OtherCard from "@/src/components/OtherCard";
 import { getSelectBlog } from "@/src/store/slices/blogSlice";
 import { AppDispatch, RootState } from "@/src/store/store";
-import React, { useEffect } from "react";
+import React, { Suspense, useEffect } from "react";
 import { useSelector } from "react-redux";
 import Style from "./style.module.css";
+import Link from "next/link";
+import Loading from "@/src/components/Loading";
 
 interface BlogProps {
   params: any;
@@ -28,13 +30,18 @@ const BlogDetailPage: React.FC<BlogProps> = ({ params }) => {
   console.log("detail", userOtherBlog);
   return (
     <div className={Style.wrapper}>
-      <BlogDetail select={selectBlog} />
+      <Link href="/">Back</Link>
+      <Suspense fallback={<Loading />}>
+        <BlogDetail select={selectBlog} />
+      </Suspense>
       <h2>
         <b>Diğer Makaleler</b>
       </h2>
-      {userOtherBlog.map((item) => (
-        <OtherCard select={item} key={item._id} />
-      ))}
+      <Suspense fallback={<Loading />}>
+        {userOtherBlog.map((item) => (
+          <OtherCard select={item} key={item._id} />
+        ))}
+      </Suspense>
     </div>
   );
 };

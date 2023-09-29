@@ -19,6 +19,7 @@ const Navbar = () => {
           <b>BLOG APP</b>
         </h2>
       </Link>
+
       <div>
         <Link href="/profile">
           <span className={Style.userName}>{formData?.userName}</span>

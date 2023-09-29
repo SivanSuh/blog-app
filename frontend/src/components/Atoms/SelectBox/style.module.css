@@ -1,0 +1,3 @@
+.select {
+    @apply py-3 min-w-[200px] bg-white border-[#ccc] my-2
+}
