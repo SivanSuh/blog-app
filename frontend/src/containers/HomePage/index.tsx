@@ -33,12 +33,12 @@ const HomePage = () => {
         linkHref="/createBlog"
         buttonType={false}
       />
-      <SelectBox
+      {/* <SelectBox
         value={select}
         data={data}
         onChange={(e) => setSelect(e.target.value)}
       />
-      {select}
+      {select} */}
       <br />
       <br />
       <Blog />

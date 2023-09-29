@@ -7,16 +7,18 @@ import Style from "./style.module.css";
 import Button from "../Atoms/Button";
 import { addBlog } from "@/src/store/slices/blogSlice";
 import FileUpload from "../FileUpload";
+import { useRouter } from "next/navigation";
 
 const CreateBlog = () => {
   const { formData } = useSelector((state: RootState) => state.auth);
   const { register, handleSubmit } = useForm<FieldValues>();
   const dispatch = AppDispatch();
+  const router = useRouter();
 
   const [selectedFile, setSelectedFile] = useState<null | any | File>(null);
 
   const onSubmit = async (data: any) => {
-    const { description, image, title } = data;
+    const { description, title } = data;
     const newFormData = new FormData();
 
     newFormData.append("title", title);
@@ -25,7 +27,8 @@ const CreateBlog = () => {
     newFormData.append("user", formData?._id);
 
     await dispatch(addBlog(newFormData as any));
-    console.log("data", data);
+
+    console.log("data", newFormData);
   };
 
   return (

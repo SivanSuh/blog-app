@@ -8,7 +8,7 @@ const addBlogs = async (req, res) => {
     const createNewBlog = await BlogModels.create({
       title,
       description,
-      image: req.file.filename,
+      image: req?.file?.filename,
       user,
     });
     if (createNewBlog) {
