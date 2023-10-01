@@ -5,11 +5,16 @@ import Style from "./style.module.css";
 import Input from "../../Atoms/Input";
 import Link from "next/link";
 import Button from "../../Atoms/Button";
-import { AppDispatch } from "@/src/store/store";
+import { AppDispatch, RootState } from "@/src/store/store";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
+import { registerRequest } from "@/src/store/slices/authSlice";
+import { useRouter } from "next/navigation";
+import { useSelector } from "react-redux";
 
 const Register = () => {
   const dispatch = AppDispatch();
+  const { error } = useSelector((state: RootState) => state.auth);
+  const router = useRouter();
   const { register, handleSubmit } = useForm<FieldValues>({
     defaultValues: {
       email: "",
@@ -18,9 +23,10 @@ const Register = () => {
   });
   const onSubmit: SubmitHandler<FieldValues> = async (data: any) => {
     console.log("data", data);
+    await dispatch(registerRequest(data)).then(() => router.push("/"));
   };
   return (
-    <main className={Style.main}>
+    <form onSubmit={handleSubmit(onSubmit)} className={Style.main}>
       <h2 className={Style.title}>Register Page</h2>
       <Input
         register={register}
@@ -48,7 +54,8 @@ const Register = () => {
         <Link href="/auth/login">Do you have account?</Link>
       </p>
       <Button buttonName="Submit" />
-    </main>
+      {error && <h2 className={Style.errors}>{error}</h2>}
+    </form>
   );
 };
 

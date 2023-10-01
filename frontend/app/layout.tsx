@@ -1,10 +1,7 @@
 import Layout from "@/src/components/Layout";
 import "./globals.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import ReduxProvider from "@/src/store/ReduxProvider";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Blog App",

@@ -20,6 +20,8 @@ const AuthModels = new Schema(
     },
     image: {
       type: String,
+      default:
+        "https://miro.medium.com/v2/resize:fill:112:112/1*y6C4nSvy2Woe0m7bWEn4BA.png",
     },
   },
   { timestamps: true }

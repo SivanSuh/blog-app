@@ -13,7 +13,7 @@ const router = express.Router();
 router.post("/addBlog", multerConfig.single("image"), addBlogs);
 router.get("/allBlog", allBlog);
 router.post("/allBlog/:id", selectBlog);
-router.put("/allBlog/:id", blogUpdate);
+router.put("/allBlog/:id", multerConfig.single("image"), blogUpdate);
 router.post("/userInfo/:id", userInfo);
 
 module.exports = router;
