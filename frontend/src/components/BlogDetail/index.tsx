@@ -1,12 +1,9 @@
 import React from "react";
 import BlogDetailProps from "./props";
 import Style from "./style.module.css";
-import { AppDispatch } from "@/src/store/store";
 import Link from "next/link";
 
 const BlogDetail: React.FC<BlogDetailProps> = ({ select }) => {
-  const dispatch = AppDispatch();
-
   return (
     <div>
       <h2 className={Style.title}>{select?.title}</h2>

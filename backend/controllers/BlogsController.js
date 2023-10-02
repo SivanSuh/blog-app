@@ -33,6 +33,7 @@ const blogUpdate = async (req, res) => {
   const { id } = req.params;
   try {
     const updateBlog = await BlogModels.findOneAndUpdate({ _id: id }, req.body);
+    console.log("update", updateBlog);
     res.status(200).json(updateBlog);
   } catch (err) {
     console.log(err);

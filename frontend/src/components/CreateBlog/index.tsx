@@ -11,6 +11,7 @@ import { useRouter } from "next/navigation";
 
 const CreateBlog = () => {
   const { formData } = useSelector((state: RootState) => state.auth);
+  const { newBlogAdded } = useSelector((state: RootState) => state.blog);
   const { register, handleSubmit } = useForm<FieldValues>();
   const dispatch = AppDispatch();
   const router = useRouter();
@@ -28,6 +29,9 @@ const CreateBlog = () => {
 
     await dispatch(addBlog(newFormData as any));
   };
+  if (newBlogAdded) {
+    router.push("/");
+  }
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={Style.form}>

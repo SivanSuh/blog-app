@@ -1,3 +1,9 @@
 .wrapper {
     @apply w-[1024px] p-5 mx-auto 
 }
+.settingContainer {
+     @apply flex justify-between
+}
+.otherBlogs {
+    @apply flex flex-wrap  gap-3
+}

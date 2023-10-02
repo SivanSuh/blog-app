@@ -44,12 +44,14 @@ interface AddModel {
     errors:boolean
     selectBlog:Object
     userData:RegisterModel | null | unknown
+    newBlogAdded:boolean;
 }
 const initialState:AddModel= {
     allBlog:[],
     errors:false,
     selectBlog:{},
-    userData:null
+    userData:null,
+    newBlogAdded:true
 }
 
 const blogSlice = createSlice({
@@ -59,6 +61,7 @@ const blogSlice = createSlice({
     extraReducers:(builder) => {
         builder.addCase(addBlog.fulfilled,(state,action) => {
             state.allBlog.push(action.payload as any)
+            state.newBlogAdded = true
         })
         builder.addCase(addBlog.rejected,(state,action) => {
             state.errors = true
