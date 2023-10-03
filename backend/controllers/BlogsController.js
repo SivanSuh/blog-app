@@ -31,8 +31,18 @@ const allBlog = async (req, res) => {
 
 const blogUpdate = async (req, res) => {
   const { id } = req.params;
+  const { title, description, userInfo } = req.body;
+  const updates = {
+    title,
+    description,
+    userInfo,
+  };
+  if (req.file) {
+    const files = req.file.filename;
+    updates.image = files;
+  }
   try {
-    const updateBlog = await BlogModels.findOneAndUpdate({ _id: id }, req.body);
+    const updateBlog = await BlogModels.findOneAndUpdate({ _id: id }, updates);
     console.log("update", updateBlog);
     res.status(200).json(updateBlog);
   } catch (err) {
