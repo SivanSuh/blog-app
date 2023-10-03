@@ -38,7 +38,14 @@ export const getUserInfo = createAsyncThunk("get-user-info",async (id:string) =>
         console.log(error)
     }
 })
-
+export const selectBlogUpdate = createAsyncThunk("blog-update",async ({id,body}:any) => {
+    try {
+        const response = await blogService.blogUpdate(id,body)
+        return response.data
+    } catch (error) {
+        console.log(error)
+    }
+}) 
 interface AddModel {
     allBlog:AllBlogsModel[]
     errors:boolean
@@ -82,6 +89,15 @@ const blogSlice = createSlice({
         // userInfo
         builder.addCase(getUserInfo.fulfilled,(state,action) => {
             state.userData = action.payload?.data
+        })
+
+        builder.addCase(selectBlogUpdate.fulfilled,(state,action) => {
+            const id = action.payload;
+           const newValues = state.allBlog.findIndex(item => item?._id === id)
+            state.allBlog = {
+                ...state.allBlog[newValues],
+                ...action.payload
+            }
         })
     }
 })

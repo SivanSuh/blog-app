@@ -37,7 +37,13 @@ const BlogDetailPage: React.FC<BlogProps> = ({ params }) => {
         <Suspense fallback={<Loading />}>
           <BlogDetail select={selectBlog} />
         </Suspense>
-        <div>{editBlog ? <FcSettings size={30} /> : null}</div>
+        <div>
+          {editBlog ? (
+            <Link href="/updateBlog">
+              <FcSettings size={30} />
+            </Link>
+          ) : null}
+        </div>
       </div>
       <h2>
         <b>Diğer Makaleler</b>

@@ -31,12 +31,19 @@ const userInfo = async (id:string) => {
         method:"POST"
     })
 }
-
+const blogUpdate  = async (id:string,data:AddBlogModel) => {
+    return api({
+        url:`/blog/allBlog/${id}`,
+        method:"PUT",
+        data
+    })
+}
 const blogService = {
     addNewBlog,
     getAllBlogs,
     selectBlogs,
-    userInfo
+    userInfo,
+    blogUpdate
 }
 
 export default blogService
