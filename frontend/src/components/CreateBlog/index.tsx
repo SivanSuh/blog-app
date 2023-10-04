@@ -28,10 +28,10 @@ const CreateBlog = () => {
     newFormData.append("user", formData?._id);
 
     await dispatch(addBlog(newFormData as any));
+    if (newBlogAdded) {
+      router.push("/");
+    }
   };
-  if (newBlogAdded) {
-    router.push("/");
-  }
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={Style.form}>

@@ -1,3 +1,4 @@
+"use client";
 import React, { FC } from "react";
 import ButtonProps from "./props";
 import Style from "./style.module.css";
@@ -17,7 +18,11 @@ const Button: FC<ButtonProps> = ({
           {buttonName}
         </button>
       ) : (
-        <Link href={linkHref as string} className={Style.button}>
+        <Link
+          href={linkHref as string}
+          as={linkHref as string}
+          className={Style.button}
+        >
           {buttonName}
         </Link>
       )}
