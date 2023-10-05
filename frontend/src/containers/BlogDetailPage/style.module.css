@@ -7,3 +7,9 @@
 .otherBlogs {
     @apply flex flex-wrap  gap-3
 }
+.settingIcon {
+    @apply flex items-center
+}
+.deleteButton {
+    @apply cursor-pointer
+}

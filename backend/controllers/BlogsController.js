@@ -69,10 +69,20 @@ const userInfo = async (req, res) => {
     console.log(err);
   }
 };
+const deleteBlog = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const selectDeleteBlog = await BlogModels.findByIdAndDelete(id);
+    res.send(selectDeleteBlog);
+  } catch (err) {
+    console.log(err);
+  }
+};
 module.exports = {
   addBlogs,
   allBlog,
   selectBlog,
   blogUpdate,
   userInfo,
+  deleteBlog,
 };

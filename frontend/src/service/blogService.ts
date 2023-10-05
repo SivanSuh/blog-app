@@ -38,12 +38,19 @@ const blogUpdate  = async (id:string,data:AddBlogModel) => {
         data
     })
 }
+const deleteBlog = async (id:string) => {
+    return api({
+        url:`/blog/selectBlog/${id}`,
+        method:"DELETE"
+    })
+}
 const blogService = {
     addNewBlog,
     getAllBlogs,
     selectBlogs,
     userInfo,
-    blogUpdate
+    blogUpdate,
+    deleteBlog
 }
 
 export default blogService

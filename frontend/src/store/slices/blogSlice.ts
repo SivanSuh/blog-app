@@ -46,6 +46,14 @@ export const selectBlogUpdate = createAsyncThunk("blog-update",async ({id,body}:
         console.log(error)
     }
 }) 
+export const selectDeleteBlog = createAsyncThunk("delete-blog",async (id:string) => {
+    try{
+        const response = await blogService.deleteBlog(id);
+        return response.data
+    }catch(err){
+        console.log(err)
+    }
+})
 interface AddModel {
     allBlog:AllBlogsModel[]
     errors:boolean

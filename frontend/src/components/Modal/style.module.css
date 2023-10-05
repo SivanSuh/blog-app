@@ -1,0 +1,15 @@
+.modal {
+    @apply fixed top-0 left-0 right-0 bottom-0 w-full bg-slate-300 h-full  bg-opacity-30
+}
+.modalContainer {
+    @apply text-center fixed top-1/4  pb-10 bg-white max-w-xl w-full right-2/4 h-[300px] translate-x-2/4 rounded-md p-2;
+}
+.flexStructure {
+    @apply flex justify-between items-center 
+}
+.close {
+    @apply cursor-pointer text-red-500
+}
+.areYouSure {
+    @apply my-5 font-bold
+}

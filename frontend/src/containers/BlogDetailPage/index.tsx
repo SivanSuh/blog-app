@@ -2,14 +2,17 @@
 
 import BlogDetail from "@/src/components/BlogDetail";
 import OtherCard from "@/src/components/OtherCard";
-import { getSelectBlog } from "@/src/store/slices/blogSlice";
+import { getSelectBlog, selectDeleteBlog } from "@/src/store/slices/blogSlice";
 import { AppDispatch, RootState } from "@/src/store/store";
-import React, { Suspense, useEffect } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import Style from "./style.module.css";
 import Link from "next/link";
 import Loading from "@/src/components/Loading";
 import { FcSettings } from "react-icons/fc";
+import { AiOutlineDelete } from "react-icons/ai";
+import Modal from "@/src/components/Modal";
+import { useRouter } from "next/navigation";
 
 interface BlogProps {
   params: any;
@@ -19,7 +22,9 @@ const BlogDetailPage: React.FC<BlogProps> = ({ params }) => {
   const { selectBlog, allBlog } = useSelector((state: RootState) => state.blog);
   const { formData } = useSelector((state: RootState) => state.auth);
 
+  const [open, setOpen] = useState(false);
   const dispatch = AppDispatch();
+  const router = useRouter();
 
   useEffect(() => {
     dispatch(getSelectBlog(params.id));
@@ -39,9 +44,14 @@ const BlogDetailPage: React.FC<BlogProps> = ({ params }) => {
         </Suspense>
         <div>
           {editBlog ? (
-            <Link href="/updateBlog">
-              <FcSettings size={30} />
-            </Link>
+            <div className={Style.settingIcon}>
+              <Link href="/updateBlog">
+                <FcSettings size={30} />
+              </Link>
+              <div onClick={() => setOpen(true)} className={Style.deleteButton}>
+                <AiOutlineDelete size={30} color={"red"} />
+              </div>
+            </div>
           ) : null}
         </div>
       </div>
@@ -55,6 +65,16 @@ const BlogDetailPage: React.FC<BlogProps> = ({ params }) => {
           ))}
         </Suspense>
       </div>
+      <Modal
+        open={open}
+        close={setOpen}
+        title={selectBlog?.title}
+        onClick={() => {
+          dispatch(selectDeleteBlog(selectBlog?._id));
+          setOpen(false);
+          router.push("/");
+        }}
+      />
     </div>
   );
 };
