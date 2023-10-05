@@ -34,7 +34,7 @@ const BlogDetailPage: React.FC<BlogProps> = ({ params }) => {
     (item) => item.user._id === selectBlog?.user?._id
   );
   const editBlog = formData?._id === selectBlog?.user?._id;
-  console.log("edit blog", editBlog);
+
   return (
     <div className={Style.wrapper}>
       <Link href="/">Back</Link>

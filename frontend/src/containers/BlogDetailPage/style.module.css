@@ -1,5 +1,5 @@
 .wrapper {
-    @apply w-[1024px] p-5 mx-auto 
+    @apply lg:w-[1024px] w-10/12 md:p-5 p-1 mx-auto 
 }
 .settingContainer {
      @apply flex justify-between

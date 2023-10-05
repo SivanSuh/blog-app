@@ -2,7 +2,7 @@
  @apply border-none p-4 cursor-pointer  ease-in-out hover:bg-white shadow-lg delay-100 my-2
 }
 .main {
-    @apply flex  w-[800px] justify-between 
+    @apply flex md:flex-nowrap flex-wrap md:w-[800px] w-10/12 mx-auto  justify-between 
 }
 
 .title{

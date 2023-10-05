@@ -1,5 +1,5 @@
 .other {
-    @apply border  inline-flex w-80 flex-wrap p-4  h-72
+    @apply border  inline-flex md:w-80 w-full flex-wrap p-4  h-72
 }
 .title {
     @apply w-full text-lg font-bold my-2
